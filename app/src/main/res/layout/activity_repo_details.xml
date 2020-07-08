@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.reposearchapp.ui.details.RepoDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewRepoOwnerAvatar"
+            android:layout_width="@dimen/avatar_icon_width"
+            android:layout_height="@dimen/avatar_icon_height"
+            android:padding="@dimen/space_small"
+            app:layout_constraintEnd_toStartOf="@+id/textViewRepositoryName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRepositoryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/space_small"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textViewSubscribersCount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewRepoOwnerAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="NAME" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewSubscribersCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/space_small"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/recyclerViewSubscribers"
+            app:layout_constraintEnd_toEndOf="@id/textViewRepositoryName"
+            app:layout_constraintStart_toStartOf="@id/textViewRepositoryName"
+            app:layout_constraintTop_toBottomOf="@id/textViewRepositoryName"
+            tools:text="TOTAL SUBSCRIBER COUNT" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewSubscribers"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/space_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/buttonLoadMore"
+            app:layout_constraintTop_toBottomOf="@id/textViewSubscribersCount" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/buttonLoadMore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_default"
+            android:src="@drawable/ic_load"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

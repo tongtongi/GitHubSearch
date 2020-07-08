@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/space_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_small">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewRepoAvatar"
+            android:layout_width="@dimen/avatar_icon_width"
+            android:layout_height="@dimen/avatar_icon_height"
+            android:layout_marginEnd="@dimen/space_default"
+            app:layout_constraintEnd_toStartOf="@+id/textViewRepoName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRepoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/textViewRepoDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewRepoAvatar"
+            app:layout_constraintTop_toTopOf="@+id/imageViewRepoAvatar"
+            tools:text="NAME" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRepoDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/textViewRepoForkCount"
+            app:layout_constraintEnd_toEndOf="@+id/textViewRepoName"
+            app:layout_constraintStart_toStartOf="@id/textViewRepoName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRepoName"
+            tools:text="DESCRIPTION" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewRepoForkCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textViewRepoName"
+            app:layout_constraintStart_toStartOf="@id/textViewRepoName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRepoDescription"
+            tools:text="FORK COUNT" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

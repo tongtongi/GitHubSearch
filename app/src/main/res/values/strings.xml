@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RepoSearchApp</string>
+
+    <string name="search_repo_activity_action_bar_title">Search Repositories</string>
+    <string name="repo_list_activity_action_bar_title">Repositories</string>
+
+    <string name="find_repo_button_text">FIND REPOSITORIES</string>
+    <string name="search_query_edit_text_hint">Enter a query</string>
+    <string name="search_query_text_view_explanation">You can enter a query i.e. <b>language:python</b> to see the
+        repositories whose languages are python, <b>forks:100</b> to see the ones who has forks over hundred or
+        <b>stars:>5000</b> to see the ones who has stars over five thousand or <b>codility in:description</b>
+        to find the repositories which has codility keyword in their descriptions.</string>
+    <string name="search_query_warning">Please enter a query...</string>
+
+    <string name="repository_name">Name: %1$s</string>
+    <string name="repository_description">Description: %1$s</string>
+    <string name="repository_fork_count">Fork Count: %1$s</string>
+
+    <string name="repository_detail_name">Repository Name: %1$s</string>
+    <string name="repository_subscriber_count">Total Subscriber Count: %1$d</string>
+    <string name="something_went_wrong_error">Uupps, something went wrong 😢</string>
+</resources>

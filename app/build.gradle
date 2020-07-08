@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.apollographql.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.reposearchapp"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "SERVER_URL", '"https://api.github.com/graphql"')
+        buildConfigField("String", "TOKEN", '""')
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$libraryVersion.kotlin"
+    implementation "androidx.appcompat:appcompat:$libraryVersion.appcompat"
+    implementation "androidx.core:core-ktx:$libraryVersion.ktx"
+    implementation "androidx.constraintlayout:constraintlayout:$libraryVersion.constraintLayout"
+    implementation "androidx.cardview:cardview:$libraryVersion.cardView"
+    implementation "androidx.recyclerview:recyclerview:$libraryVersion.recyclerview"
+    implementation "com.google.android.material:material:$libraryVersion.material"
+
+    //Lifecycle aware components - ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$libraryVersion.lifecycle"
+    kapt "androidx.lifecycle:lifecycle-common-java8:$libraryVersion.lifecycle"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:$libraryVersion.dagger"
+    kapt "com.google.dagger:dagger-compiler:$libraryVersion.dagger"
+    implementation "com.google.dagger:dagger-android:$libraryVersion.dagger"
+    implementation "com.google.dagger:dagger-android-support:$libraryVersion.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$libraryVersion.dagger"
+
+    //RxJava2
+    implementation "io.reactivex.rxjava2:rxjava:$libraryVersion.rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$libraryVersion.rxandroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$libraryVersion.rxKotlin"
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:$libraryVersion.lottie"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$libraryVersion.picasso"
+
+    //Apollo
+    implementation "com.apollographql.apollo:apollo-runtime:$libraryVersion.apollo"
+    implementation "com.apollographql.apollo:apollo-rx2-support:$libraryVersion.apollo"
+    compileOnly "org.jetbrains:annotations:$libraryVersion.jetbrains"
+    testCompileOnly "org.jetbrains:annotations:$libraryVersion.jetbrains"
+
+    //Test
+    testImplementation "junit:junit:$libraryVersion.junit"
+    testImplementation "androidx.arch.core:core-testing:$libraryVersion.lifecycle"
+    testImplementation "org.mockito:mockito-core:$libraryVersion.mockito"
+    testImplementation "org.mockito:mockito-inline:$libraryVersion.mockitoInline"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$libraryVersion.mockitoKotlin"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3"
+}

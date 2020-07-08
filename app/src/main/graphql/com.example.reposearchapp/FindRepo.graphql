@@ -1,0 +1,50 @@
+query RepositoryDetail($owner:String!,$name:String!, $after:String){
+  repository(owner:$owner, name:$name) {
+    owner{
+       avatarUrl
+    }
+    watchers(first: 100, after:$after) {
+       totalCount
+        nodes{
+          login
+          avatarUrl
+        }
+        pageInfo{
+            hasNextPage
+            endCursor
+            startCursor
+        }
+    }
+  }
+}
+
+query RepositoryList($queryString: String!, $after:String){
+ rateLimit{
+  cost
+  remaining
+  resetAt
+ }
+ search(query:$queryString, after:$after, type:REPOSITORY, first:30){
+  repositoryCount
+  pageInfo{
+   hasNextPage
+   endCursor
+   startCursor
+  }
+  edges{
+   node{
+    ... on Repository{
+     id
+     name
+     description
+     isPrivate
+     forkCount
+     owner{
+      avatarUrl
+      login
+     }
+    }
+   }
+  }
+ }
+}
